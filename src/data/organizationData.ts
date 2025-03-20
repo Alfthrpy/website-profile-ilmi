@@ -23,13 +23,13 @@ export type Position = {
 
 const organizationData: Position = {
   id: "1",
-  title: "Chairman",
-  name: "Ahmad Fauzi",
-  department: "Executive",
+  title: "Ketua",
+  name: "Muhammad Fikri Ahadu",
+  department: "Ex-Officio",
   description:
-    "Leads the overall direction and vision of Ikatan Alumni MAN 2 Sukabumi.",
-  email: "ahmad.fauzi@example.com",
-  phone: "(555) 123-4567",
+    "Memimpin arah dan visi keseluruhan Ikatan Alumni MAN 2 Sukabumi.",
+  email: "fikri@gmail.com",
+  phone: "+62 858-7210-7032",
   photoUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ahmad",
   subordinates: [
     {

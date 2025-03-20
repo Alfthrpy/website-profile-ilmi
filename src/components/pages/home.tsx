@@ -1,27 +1,134 @@
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Users, User, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
+import ContactForm from "@/components/ContactForm";
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Apple-style navigation */}
       <header className="fixed top-0 z-50 w-full bg-[rgba(255,255,255,0.8)] backdrop-blur-md border-b border-[#f5f5f7]/30">
-        <div className="max-w-[980px] mx-auto flex h-12 items-center justify-between px-4">
-          <div className="flex items-center">
+        <div className="max-w-[1200px] mx-auto flex h-16 items-center justify-between px-6">
+          <div className="flex items-center space-x-3">
+            <img
+              src="https://api.dicebear.com/7.x/initials/svg?seed=MAN2&backgroundColor=0052cc&textColor=ffffff"
+              alt="MAN 2 Logo"
+              className="h-10 w-10 rounded-md"
+            />
             <Link to="/" className="font-medium text-xl">
               Ikatan Alumni MAN 2 Sukabumi
             </Link>
           </div>
-          <div className="flex items-center space-x-4">
-            <Link to="/organization">
-              <Button
-                variant="ghost"
-                className="text-sm font-light hover:text-gray-500"
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link
+              to="/"
+              className="text-blue-900 hover:text-blue-600 font-medium"
+            >
+              Home
+            </Link>
+            <Link
+              to="/organization"
+              className="text-blue-900 hover:text-blue-600 font-medium"
+            >
+              Organization
+            </Link>
+            <Link
+              to="/organization?tab=members"
+              className="text-blue-900 hover:text-blue-600 font-medium"
+            >
+              Members
+            </Link>
+            <Link
+              to="/organization?tab=programs"
+              className="text-blue-900 hover:text-blue-600 font-medium"
+            >
+              Programs
+            </Link>
+            <ContactForm />
+          </nav>
+
+          {/* Mobile Navigation Menu */}
+          <div
+            id="mobile-nav"
+            className="hidden absolute top-16 left-0 right-0 bg-white shadow-md z-50 md:hidden"
+          >
+            <div className="flex flex-col p-4 space-y-3">
+              <Link
+                to="/"
+                className="text-blue-900 hover:text-blue-600 font-medium py-2"
+                onClick={() =>
+                  document.getElementById("mobile-nav")?.classList.add("hidden")
+                }
+              >
+                Home
+              </Link>
+              <Link
+                to="/organization"
+                className="text-blue-900 hover:text-blue-600 font-medium py-2"
+                onClick={() =>
+                  document.getElementById("mobile-nav")?.classList.add("hidden")
+                }
               >
                 Organization
-              </Button>
-            </Link>
+              </Link>
+              <Link
+                to="/organization?tab=members"
+                className="text-blue-900 hover:text-blue-600 font-medium py-2"
+                onClick={() =>
+                  document.getElementById("mobile-nav")?.classList.add("hidden")
+                }
+              >
+                Members
+              </Link>
+              <Link
+                to="/organization?tab=programs"
+                className="text-blue-900 hover:text-blue-600 font-medium py-2"
+                onClick={() =>
+                  document.getElementById("mobile-nav")?.classList.add("hidden")
+                }
+              >
+                Programs
+              </Link>
+              <div className="py-2">
+                <ContactForm
+                  buttonVariant="default"
+                  buttonClassName="w-full justify-center"
+                  onOpenChange={() =>
+                    document
+                      .getElementById("mobile-nav")
+                      ?.classList.add("hidden")
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => {
+                const nav = document.getElementById("mobile-nav");
+                if (nav) {
+                  nav.classList.toggle("hidden");
+                }
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="4" x2="20" y1="12" y2="12" />
+                <line x1="4" x2="20" y1="6" y2="6" />
+                <line x1="4" x2="20" y1="18" y2="18" />
+              </svg>
+            </Button>
           </div>
         </div>
       </header>
@@ -166,6 +273,149 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
+        {/* Registration Section */}
+        <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl font-bold mb-6">
+                  Bergabunglah dengan Komunitas Alumni
+                </h2>
+                <p className="text-lg mb-8 text-blue-100">
+                  Daftarkan diri Anda untuk mendapatkan informasi terbaru
+                  tentang kegiatan, acara, dan peluang networking dengan sesama
+                  alumni MAN 2 Sukabumi.
+                </p>
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start">
+                    <svg
+                      className="h-6 w-6 mr-2 text-blue-300"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>Akses ke direktori alumni</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg
+                      className="h-6 w-6 mr-2 text-blue-300"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>Undangan eksklusif ke acara alumni</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg
+                      className="h-6 w-6 mr-2 text-blue-300"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>Kesempatan networking dengan alumni sukses</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg
+                      className="h-6 w-6 mr-2 text-blue-300"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>Newsletter bulanan dengan berita terbaru</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-white p-8 rounded-xl shadow-lg">
+                <h3 className="text-2xl font-semibold mb-6 text-blue-900">
+                  Daftar Sekarang
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Nama Lengkap
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      placeholder="Masukkan nama lengkap"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      placeholder="email@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Tahun Lulus
+                    </label>
+                    <select className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900">
+                      <option value="">Pilih Tahun Lulus</option>
+                      {Array.from(
+                        { length: 30 },
+                        (_, i) => new Date().getFullYear() - i,
+                      ).map((year) => (
+                        <option key={year} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Profesi/Pekerjaan Saat Ini
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      placeholder="Masukkan profesi/pekerjaan"
+                    />
+                  </div>
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md mt-4">
+                    Daftar
+                  </Button>
+                  <p className="text-xs text-gray-500 mt-2 text-center">
+                    Dengan mendaftar, Anda menyetujui kebijakan privasi kami.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
@@ -238,9 +488,11 @@ export default function LandingPage() {
               </h4>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/" className="hover:underline">
-                    Contact Us
-                  </Link>
+                  <ContactForm
+                    buttonVariant="ghost"
+                    buttonClassName="hover:underline p-0 h-auto font-normal text-xs text-gray-500"
+                    buttonText="Contact Us"
+                  />
                 </li>
                 <li>
                   <Link to="/" className="hover:underline">
