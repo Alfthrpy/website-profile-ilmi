@@ -96,14 +96,6 @@ export default function ContactForm({
             <DialogTitle className="text-xl font-semibold text-blue-900">
               Contact Us
             </DialogTitle>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setOpen(false)}
-              className="h-8 w-8"
-            >
-              <X className="h-4 w-4" />
-            </Button>
           </div>
           <DialogDescription>
             Send us a message and we'll get back to you as soon as possible.

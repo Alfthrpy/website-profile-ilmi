@@ -93,11 +93,6 @@ export default function LandingPage() {
                 <ContactForm
                   buttonVariant="default"
                   buttonClassName="w-full justify-center"
-                  onOpenChange={() =>
-                    document
-                      .getElementById("mobile-nav")
-                      ?.classList.add("hidden")
-                  }
                 />
               </div>
             </div>
