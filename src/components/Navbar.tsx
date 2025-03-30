@@ -40,7 +40,7 @@ const Navbar = () => {
             <div className="max-w-[1200px] mx-auto flex h-16 items-center justify-between px-6">
                 <div className="flex items-center space-x-3">
                     <img
-                        src="https://api.dicebear.com/7.x/initials/svg?seed=MAN2&backgroundColor=0052cc&textColor=ffffff"
+                        src="ilmi.jpg"
                         alt="MAN 2 Logo"
                         className="h-10 w-10 rounded-md"
                     />
