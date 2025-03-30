@@ -33,9 +33,9 @@ const organizationData: Position ={
   "subordinates": [
     {
       "id": "2",
-      "title": "Secretary",
+      "title": "Sekretaris",
       "name": "Rizkita Amelia",
-      "department": "Executive",
+      "department": "Ex-Officio",
       "description": "Manages administrative tasks and organizational documentation.",
       "email": "rizkita.amelia@example.com",
       "phone": "(555) 234-5678",
@@ -43,9 +43,9 @@ const organizationData: Position ={
     },
     {
       "id": "3",
-      "title": "Treasurer",
+      "title": "Bendahara",
       "name": "Fidia Agnia",
-      "department": "Executive",
+      "department": "Ex-Officio",
       "description": "Oversees financial management and budgeting for the organization.",
       "email": "fidia.agnia@example.com",
       "phone": "(555) 345-6789",
@@ -53,9 +53,9 @@ const organizationData: Position ={
     },
     {
       "id": "4",
-      "title": "PMB Division Head",
+      "title": "Ketua Bidang Pengembangan Minat dan Bakat (PMB)",
       "name": "Alfisyahr Izzulhaq",
-      "department": "PMB Division",
+      "department": "Bidang PMB",
       "description": "Coordinates activities related to new student admissions and orientation.",
       "email": "alfisyahr.izzulhaq@example.com",
       "phone": "(555) 456-7890",
@@ -63,20 +63,20 @@ const organizationData: Position ={
       "subordinates": [
         {
           "id": "5",
-          "title": "PMB Secretary",
+          "title": "Sekretaris Bidang",
           "name": "Imat Siti Nurjiah",
-          "department": "PMB Division",
-          "description": "Handles documentation and administrative tasks for the PMB division.",
+          "department": "Bidang PMB",
+          "description": "Handles documentation and administrative tasks for the Bidang PMB.",
           "email": "imat.siti.nurjiah@example.com",
           "phone": "(555) 567-8901",
           "photoUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Imat"
         },
         {
           "id": "6",
-          "title": "PMB Treasurer",
+          "title": "Bendahara Bidang",
           "name": "M Farhan Ramadhan",
-          "department": "PMB Division",
-          "description": "Manages financial aspects of PMB division activities.",
+          "department": "Bidang PMB",
+          "description": "Manages financial aspects of Bidang PMB activities.",
           "email": "m.farhan.ramadhan@example.com",
           "phone": "(555) 678-9012",
           "photoUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Farhan"
@@ -85,9 +85,9 @@ const organizationData: Position ={
     },
     {
       "id": "7",
-      "title": "MTS Division Head",
+      "title": "Ketua Bidang Manajemen Telekomunikasi dan Sosial (MTS)",
       "name": "Muhammad Rizki Al-Fathir",
-      "department": "MTS Division",
+      "department": "Bidang MTS",
       "description": "Leads initiatives and programs for MTS alumni and students.",
       "email": "rizki@example.com",
       "phone": "(555) 789-0123",
@@ -95,20 +95,20 @@ const organizationData: Position ={
       "subordinates": [
         {
           "id": "8",
-          "title": "MTS Secretary",
+          "title": "Sekreataris Bidang",
           "name": "Zulfa Mujahidah Sayuti",
-          "department": "MTS Division",
-          "description": "Manages documentation and communication for MTS division.",
+          "department": "Bidang MTS",
+          "description": "Manages documentation and communication for Bidang MTS.",
           "email": "zulfa@example.com",
           "phone": "(555) 890-1234",
           "photoUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Zulfa"
         },
         {
           "id": "9",
-          "title": "MTS Treasurer",
+          "title": "Bendahara Bidang",
           "name": "Zakiyah Rozaliana",
-          "department": "MTS Division",
-          "description": "Handles financial planning and reporting for MTS division activities.",
+          "department": "Bidang MTS",
+          "description": "Handles financial planning and reporting for Bidang MTS activities.",
           "email": "zakiyah@example.com",
           "phone": "(555) 901-2345",
           "photoUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Zakiyah"
@@ -117,9 +117,9 @@ const organizationData: Position ={
     },
     {
       "id": "10",
-      "title": "MA Division Head",
+      "title": "Ketua Bidang Manajemen Anggota (MA)",
       "name": "Nazwa Syifa",
-      "department": "MA Division",
+      "department": "Bidang MA",
       "description": "Coordinates programs and events for MA alumni and students.",
       "email": "nazwa@example.com",
       "phone": "(555) 012-3456",
@@ -127,20 +127,20 @@ const organizationData: Position ={
       "subordinates": [
         {
           "id": "11",
-          "title": "MA Secretary",
+          "title": "Sekretaris Bidang",
           "name": "Maharsa Sabila",
-          "department": "MA Division",
-          "description": "Handles administrative tasks and record-keeping for MA division.",
+          "department": "Bidang MA",
+          "description": "Handles administrative tasks and record-keeping for Bidang MA.",
           "email": "maharsa@example.com",
           "phone": "(555) 123-4567",
           "photoUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Maharsa"
         },
         {
           "id": "12",
-          "title": "MA Treasurer",
+          "title": "Bendahara Bidang",
           "name": "Tulus Pariz",
-          "department": "MA Division",
-          "description": "Manages budget and expenses for MA division programs.",
+          "department": "Bidang MA",
+          "description": "Manages budget and expenses for Bidang MA programs.",
           "email": "tulus@example.com",
           "phone": "(555) 234-5678",
           "photoUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Tulus"
@@ -149,30 +149,30 @@ const organizationData: Position ={
     },
     {
       "id": "13",
-      "title": "Ketua Divisi Manajemen Intelektual (MI)",
+      "title": "Ketua Bidang Manajemen Intelektual (MI)",
       "name": "Syahrul Gunawan",
-      "department": "Divisi Manajemen Intelektual",
-      "description": "Memimpin Divisi Manajemen Intelektual",
+      "department": "Bidang MI",
+      "description": "Memimpin Bidang Manajemen Intelektual",
       "email": "nazwa@example.com",
       "phone": "(555) 012-3456",
       "photoUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Nazwa",
       "subordinates": [
         {
           "id": "14",
-          "title": "Sekretaris Divisi",
+          "title": "Sekretaris Bidang",
           "name": "Siti Humairah",
-          "department": "Divisi Manajemen Intelektual",
-          "description": "Menangani tugas administratif dan pencatatan untuk divisi MI",
+          "department": "Bidang MI",
+          "description": "Menangani tugas administratif dan pencatatan untuk Bidang MI",
           "email": "maharsa@example.com",
           "phone": "(555) 123-4567",
           "photoUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Maharsa"
         },
         {
           "id": "15",
-          "title": "Bendahara Divisi",
+          "title": "Bendahara Bidang",
           "name": "Siti Soffa",
-          "department": "MA Division",
-          "description": "Menangani anggaran dan pengeluaran untuk program divisi MI",
+          "department": "Bidang MA",
+          "description": "Menangani anggaran dan pengeluaran untuk program Bidang MI",
           "email": "tulus@example.com",
           "phone": "(555) 234-5678",
           "photoUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Tulus"

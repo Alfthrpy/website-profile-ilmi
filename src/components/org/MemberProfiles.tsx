@@ -45,10 +45,8 @@ const MemberProfiles = ({ members = getAllMembers() }: MemberProfilesProps) => {
 
   return (
     <div className="w-full bg-white rounded-xl p-6 shadow-sm">
-      <h3 className="text-xl font-semibold mb-6 text-blue-800">Team Members</h3>
-
       <div className="flex flex-col md:flex-row gap-4 mb-6">
-        <div className="relative flex-grow">
+        <div className="relative flex-grow  min-w-[200px]">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
           <Input
             placeholder="Search by name or title..."
@@ -107,59 +105,47 @@ const MemberProfiles = ({ members = getAllMembers() }: MemberProfilesProps) => {
 
       {filteredMembers.length === 0 && (
         <div className="text-center py-8 text-gray-500">
-          No team members found matching your search criteria.
+          Anggota tidak ditemukan.
         </div>
       )}
 
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        {selectedMember && (
-          <DialogContent className="sm:max-w-md">
-            <div className="flex flex-col sm:flex-row gap-6">
-              <div className="flex flex-col items-center">
-                <Avatar className="h-24 w-24 mb-3">
-                  <AvatarImage
-                    src={selectedMember.photoUrl}
-                    alt={selectedMember.name}
-                  />
-                  <AvatarFallback>
-                    {selectedMember.name.charAt(0)}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="flex flex-col gap-2 mt-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex gap-2 items-center"
-                  >
-                    <Mail className="h-4 w-4" />
-                    <span className="text-xs">{selectedMember.email}</span>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex gap-2 items-center"
-                  >
-                    <Phone className="h-4 w-4" />
-                    <span className="text-xs">{selectedMember.phone}</span>
-                  </Button>
-                </div>
-              </div>
+<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+  {selectedMember && (
+    <DialogContent className="max-w-lg p-6 mx-auto rounded-xl shadow-lg">
+      <div className="flex flex-col sm:flex-row gap-6">
+        <div className="flex flex-col items-center">
+          <Avatar className="h-24 w-24 mb-3">
+            <AvatarImage src={selectedMember.photoUrl} alt={selectedMember.name} />
+            <AvatarFallback>{selectedMember.name.charAt(0)}</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col gap-2 mt-2">
+            <Button variant="outline" size="sm" className="flex gap-2 items-center">
+              <Mail className="h-4 w-4" />
+              <span className="text-xs">{selectedMember.email}</span>
+            </Button>
+            <Button variant="outline" size="sm" className="flex gap-2 items-center">
+              <Phone className="h-4 w-4" />
+              <span className="text-xs">{selectedMember.phone}</span>
+            </Button>
+          </div>
+        </div>
 
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold">{selectedMember.name}</h3>
-                <div className="flex items-center gap-2 mb-4">
-                  <p className="text-gray-600">{selectedMember.title}</p>
-                  <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
-                    {selectedMember.department}
-                  </span>
-                </div>
-                <h4 className="text-sm font-medium text-gray-500 mb-1">Bio</h4>
-                <p className="text-gray-700">{selectedMember.bio}</p>
-              </div>
-            </div>
-          </DialogContent>
-        )}
-      </Dialog>
+        <div className="flex-1">
+          <h3 className="text-xl font-semibold">{selectedMember.name}</h3>
+          <div className="flex items-center gap-2 mb-4">
+            <p className="text-gray-600">{selectedMember.title}</p>
+            <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
+              {selectedMember.department}
+            </span>
+          </div>
+          <h4 className="text-sm font-medium text-gray-500 mb-1">Bio</h4>
+          <p className="text-gray-700">{selectedMember.bio}</p>
+        </div>
+      </div>
+    </DialogContent>
+  )}
+</Dialog>
+
     </div>
   );
 };

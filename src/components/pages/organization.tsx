@@ -4,20 +4,21 @@ import OrgHero from "@/components/org/OrgHero";
 import OrgChart from "@/components/org/OrgChart";
 import MemberProfiles from "@/components/org/MemberProfiles";
 import WorkPrograms from "@/components/org/WorkPrograms";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
+import { useSearchParams } from "react-router-dom";
 
 export default function OrganizationPage() {
-  const [activeTab, setActiveTab] = useState("structure");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTab = searchParams.get("tab") || "structure";
+
+  const setActiveTab = (tab: string) => {
+    setSearchParams({ tab });
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header is already in the home component, so we don't need to duplicate it */}
-
-      {/* Hero Section */}
-      <OrgHero
-        title="Ikatan Alumni MAN 2 Sukabumi"
-        subtitle="Menjaga Silaturahmi, Membangun Masa Depan"
-        description="Ikatan Alumni MAN 2 Sukabumi adalah organisasi yang mewadahi para alumni MAN 2 Sukabumi untuk tetap terhubung, berbagi pengalaman, dan berkontribusi pada almamater. Kami berkomitmen untuk menjaga silaturahmi antar alumni, mendukung perkembangan pendidikan di MAN 2 Sukabumi, dan membantu para alumni dalam pengembangan karir dan profesional."
-      />
+    <div className="min-h-screen bg-gray-50 pt-12">
+      <Navbar></Navbar>
 
       {/* Main Content */}
       <div id="org-content" className="max-w-7xl mx-auto px-4 py-12">
@@ -28,14 +29,23 @@ export default function OrganizationPage() {
           className="w-full"
         >
           <div className="flex justify-center mb-8">
-            <TabsList className="grid w-full max-w-md grid-cols-3">
-              <TabsTrigger value="structure" className="text-base py-3">
-                Org Structure
+            <TabsList className="grid w-full max-w-md grid-cols-3 shadow-sm rounded-lg">
+              <TabsTrigger
+                value="structure"
+                className="text-sm md:text-base py-3 px-2 font-medium transition-colors focus:outline-none"
+              >
+                Struktur
               </TabsTrigger>
-              <TabsTrigger value="members" className="text-base py-3">
-                Team Members
+              <TabsTrigger
+                value="members"
+                className="text-sm md:text-base py-3 px-2 font-medium transition-colors focus:outline-none"
+              >
+                Anggota
               </TabsTrigger>
-              <TabsTrigger value="programs" className="text-base py-3">
+              <TabsTrigger
+                value="programs"
+                className="text-sm md:text-base py-3 px-2 font-medium transition-colors focus:outline-none"
+              >
                 Program Kerja
               </TabsTrigger>
             </TabsList>
@@ -66,7 +76,6 @@ export default function OrganizationPage() {
                 kami. Klik pada profil untuk mempelajari lebih lanjut tentang
                 setiap anggota tim.
               </p>
-
               <MemberProfiles />
             </div>
           </TabsContent>
@@ -88,7 +97,7 @@ export default function OrganizationPage() {
         </Tabs>
       </div>
 
-      {/* Footer is already in the home component, so we don't need to duplicate it */}
+      <Footer></Footer>
     </div>
   );
 }

@@ -20,7 +20,7 @@ const WorkPrograms = ({ programs = workProgramData }: WorkProgramsProps) => {
   const [selectedDivision, setSelectedDivision] = useState<string | null>(null);
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [selectedProgram, setSelectedProgram] = useState<WorkProgram | null>(
-    null,
+    null
   );
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -29,7 +29,7 @@ const WorkPrograms = ({ programs = workProgramData }: WorkProgramsProps) => {
 
   // Get unique divisions for filter
   const divisions = Array.from(
-    new Set(programs.map((program) => program.divisionName)),
+    new Set(programs.map((program) => program.divisionName))
   );
 
   // Filter programs based on search, division, and status
@@ -84,28 +84,57 @@ const WorkPrograms = ({ programs = workProgramData }: WorkProgramsProps) => {
 
   return (
     <div className="w-full bg-white rounded-xl p-6 shadow-sm">
-      <h3 className="text-xl font-semibold mb-6 text-blue-800">
-        Work Programs
-      </h3>
-
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
-        <div className="relative flex-grow">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+      <div className="flex flex-col gap-4 mb-6">
+        {/* Search Bar - Fixed Width */}
+        <div className="relative w-full">
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none">
+            <Search className="h-4 w-4" />
+          </div>
           <Input
             placeholder="Search work programs..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
+            className="pl-10 h-10 w-full"
           />
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        {/* Filter Tabs - Responsive Layout */}
+        <div className="w-full">
           <Tabs defaultValue="divisions" className="w-full">
-            <TabsList className="mb-2">
-              <TabsTrigger value="divisions">Divisions</TabsTrigger>
-              <TabsTrigger value="status">Status</TabsTrigger>
-            </TabsList>
-            <TabsContent value="divisions" className="mt-0">
+            <div className="flex items-center justify-between mb-3">
+              <TabsList className="bg-gray-100 rounded-md">
+                <TabsTrigger
+                  value="divisions"
+                  className="px-4 py-2 data-[state=active]:bg-white"
+                >
+                  Divisions
+                </TabsTrigger>
+                <TabsTrigger
+                  value="status"
+                  className="px-4 py-2 data-[state=active]:bg-white"
+                >
+                  Status
+                </TabsTrigger>
+              </TabsList>
+
+              {/* Clear All Button */}
+              {(selectedDivision || selectedStatus) && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    setSelectedDivision(null);
+                    setSelectedStatus(null);
+                  }}
+                  className="text-gray-500 text-sm"
+                >
+                  <X className="h-3.5 w-3.5 mr-1" /> Clear All
+                </Button>
+              )}
+            </div>
+
+            {/* Divisions Content */}
+            <TabsContent value="divisions" className="mt-0 p-0">
               <div className="flex flex-wrap gap-2">
                 {divisions.map((division) => (
                   <Button
@@ -115,26 +144,20 @@ const WorkPrograms = ({ programs = workProgramData }: WorkProgramsProps) => {
                     }
                     size="sm"
                     onClick={() => handleDivisionClick(division)}
-                    className={
-                      selectedDivision === division ? "bg-blue-600" : ""
-                    }
+                    className={`rounded-full ${
+                      selectedDivision === division
+                        ? "bg-blue-600"
+                        : "border-gray-300"
+                    }`}
                   >
                     {division}
                   </Button>
                 ))}
-                {selectedDivision && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setSelectedDivision(null)}
-                    className="text-gray-500"
-                  >
-                    <X className="h-4 w-4 mr-1" /> Clear
-                  </Button>
-                )}
               </div>
             </TabsContent>
-            <TabsContent value="status" className="mt-0">
+
+            {/* Status Content */}
+            <TabsContent value="status" className="mt-0 p-0">
               <div className="flex flex-wrap gap-2">
                 {["completed", "ongoing", "planned"].map((status) => (
                   <Button
@@ -142,21 +165,15 @@ const WorkPrograms = ({ programs = workProgramData }: WorkProgramsProps) => {
                     variant={selectedStatus === status ? "default" : "outline"}
                     size="sm"
                     onClick={() => handleStatusClick(status)}
-                    className={selectedStatus === status ? "bg-blue-600" : ""}
+                    className={`rounded-full ${
+                      selectedStatus === status
+                        ? "bg-blue-600"
+                        : "border-gray-300"
+                    }`}
                   >
                     {status.charAt(0).toUpperCase() + status.slice(1)}
                   </Button>
                 ))}
-                {selectedStatus && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setSelectedStatus(null)}
-                    className="text-gray-500"
-                  >
-                    <X className="h-4 w-4 mr-1" /> Clear
-                  </Button>
-                )}
               </div>
             </TabsContent>
           </Tabs>
@@ -215,9 +232,9 @@ const WorkPrograms = ({ programs = workProgramData }: WorkProgramsProps) => {
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         {selectedProgram && (
-          <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl">
             <div className="flex flex-col gap-6">
-              <div className="rounded-lg overflow-hidden h-64">
+              <div className="overflow-hidden h-64 pt-5 rounded-lg">
                 <img
                   src={selectedProgram.imageUrl}
                   alt={selectedProgram.title}
@@ -301,7 +318,7 @@ const WorkPrograms = ({ programs = workProgramData }: WorkProgramsProps) => {
                                 </div>
                               </div>
                             </div>
-                          ),
+                          )
                         )}
                       </div>
                     </div>

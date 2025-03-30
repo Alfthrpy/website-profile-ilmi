@@ -21,7 +21,7 @@ function AppRoutes() {
 function App() {
   return (
     <>
-      <Suspense fallback={<LoadingScreen text="Loading application..." />}>
+      <Suspense fallback={<LoadingScreen text="Loading" />}>
         <AppRoutes />
       </Suspense>
       <Toaster />

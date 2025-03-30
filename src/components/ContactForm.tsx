@@ -76,7 +76,7 @@ export default function ContactForm({
         setOpen(false);
       }, 3000);
     } catch (err) {
-      setError("There was an error sending your message. Please try again.");
+      setError("Gagal mengirim pesan. Silakan coba lagi.");
       console.error(err);
     } finally {
       setIsSubmitting(false);
@@ -98,19 +98,19 @@ export default function ContactForm({
             </DialogTitle>
           </div>
           <DialogDescription>
-            Send us a message and we'll get back to you as soon as possible.
+            Kirim kami pesan jika Anda memiliki pertanyaan atau umpan balik.
           </DialogDescription>
         </DialogHeader>
 
         {isSuccess ? (
           <div className="p-4 bg-green-50 border border-green-200 rounded-md text-green-800 mb-4">
-            <p className="font-medium">Message sent successfully!</p>
+            <p className="font-medium">Pesan Terkirim!</p>
             <p className="text-sm">
-              Thank you for contacting us. We'll respond to your inquiry soon.
+              Terimakasih telah menghubungi kami. Kami akan segera merespons pesan
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form className="space-y-4" action="https://formspree.io/f/xjkyeaeb" method="POST">
             <div className="grid grid-cols-1 gap-4">
               <div>
                 <label
@@ -172,14 +172,14 @@ export default function ContactForm({
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Message
+                  Pesan
                 </label>
                 <Textarea
                   id="message"
                   name="message"
                   value={formState.message}
                   onChange={handleChange}
-                  placeholder="Please provide details about your inquiry..."
+                  placeholder="Tulis pesan Anda di sini..."
                   required
                   className="w-full min-h-[120px]"
                 />
@@ -205,7 +205,7 @@ export default function ContactForm({
         )}
 
         <div className="mt-4 text-xs text-gray-500 text-center">
-          Your message will be sent to{" "}
+          Pesan akan dikirimkan ke {" "}
           <span className="font-medium">alfthr378@gmail.com</span>
         </div>
       </DialogContent>
