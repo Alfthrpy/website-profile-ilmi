@@ -24,9 +24,9 @@ const getDivisionName = (divisionId: string): string => {
 const workProgramData: WorkProgram[] = [
   {
     id: "wp1",
-    title: "Alumni Gathering 2023",
+    title: "Campus Fair 2030",
     description:
-      "Annual gathering for all alumni to reconnect, network, and share experiences. The event included keynote speeches from successful alumni, panel discussions, and a gala dinner.",
+      "An annual event showcasing various academic programs, extracurricular activities, and career opportunities for students. The event includes exhibitions, seminars, and networking sessions to help students explore their future paths.",
     divisionId: "Executive",
     divisionName: "Executive",
     startDate: "2023-08-15",
@@ -42,8 +42,8 @@ const workProgramData: WorkProgram[] = [
     title: "Career Development Workshop",
     description:
       "A series of workshops focused on career development for recent graduates. Topics included resume building, interview skills, and professional networking.",
-    divisionId: "PMB Division",
-    divisionName: "PMB Division",
+    divisionId: "Bidang PMB ",
+    divisionName: "Bidang PMB ",
     startDate: "2023-09-10",
     endDate: "2023-09-12",
     status: "completed",
@@ -57,14 +57,14 @@ const workProgramData: WorkProgram[] = [
     title: "Scholarship Fund Drive",
     description:
       "Fundraising campaign to establish scholarships for current MAN 2 Sukabumi students. The initiative aims to support academically talented students with financial needs.",
-    divisionId: "MTS Division",
-    divisionName: "MTS Division",
+    divisionId: "Bidang MTS",
+    divisionName: "Bidang MTS",
     startDate: "2023-10-01",
     endDate: "2023-12-31",
     status: "completed",
     location: "Various locations",
     imageUrl:
-      "https://images.unsplash.com/photo-1560523159-4a9692d222f9?w=800&q=80",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
     participants: ["7", "8", "9"],
   },
   {
@@ -72,8 +72,8 @@ const workProgramData: WorkProgram[] = [
     title: "Alumni Mentorship Program",
     description:
       "A structured mentorship program pairing experienced alumni with current students and recent graduates to provide guidance on academic and career paths.",
-    divisionId: "MA Division",
-    divisionName: "MA Division",
+    divisionId: "Bidang MA",
+    divisionName: "Bidang MA",
     startDate: "2024-01-15",
     endDate: "2024-06-30",
     status: "ongoing",
@@ -87,8 +87,8 @@ const workProgramData: WorkProgram[] = [
     title: "Campus Improvement Project",
     description:
       "Collaborative effort to renovate and improve facilities at MAN 2 Sukabumi, including library upgrades, computer lab enhancements, and sports facility renovations.",
-    divisionId: "MI Division",
-    divisionName: "MI Division",
+    divisionId: "Bidang MI",
+    divisionName: "Bidang MI",
     startDate: "2024-03-01",
     endDate: "2024-05-30",
     status: "ongoing",

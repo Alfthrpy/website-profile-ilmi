@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { getAllMembers, Member } from "@/data/organizationData";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 type MemberProfilesProps = {
   members?: Member[];
@@ -14,14 +15,14 @@ type MemberProfilesProps = {
 const MemberProfiles = ({ members = getAllMembers() }: MemberProfilesProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(
-    null,
+    null
   );
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // Get unique departments for filter
   const departments = Array.from(
-    new Set(members.map((member) => member.department)),
+    new Set(members.map((member) => member.department))
   );
 
   // Filter members based on search and department
@@ -109,43 +110,56 @@ const MemberProfiles = ({ members = getAllMembers() }: MemberProfilesProps) => {
         </div>
       )}
 
-<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-  {selectedMember && (
-    <DialogContent className="max-w-lg p-6 mx-auto rounded-xl shadow-lg">
-      <div className="flex flex-col sm:flex-row gap-6">
-        <div className="flex flex-col items-center">
-          <Avatar className="h-24 w-24 mb-3">
-            <AvatarImage src={selectedMember.photoUrl} alt={selectedMember.name} />
-            <AvatarFallback>{selectedMember.name.charAt(0)}</AvatarFallback>
-          </Avatar>
-          <div className="flex flex-col gap-2 mt-2">
-            <Button variant="outline" size="sm" className="flex gap-2 items-center">
-              <Mail className="h-4 w-4" />
-              <span className="text-xs">{selectedMember.email}</span>
-            </Button>
-            <Button variant="outline" size="sm" className="flex gap-2 items-center">
-              <Phone className="h-4 w-4" />
-              <span className="text-xs">{selectedMember.phone}</span>
-            </Button>
-          </div>
-        </div>
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogTitle>Profile</DialogTitle>
+        {selectedMember && (
+          <DialogContent className="max-w-lg p-6 mx-auto rounded-xl shadow-lg">
+            <div className="flex flex-col sm:flex-row gap-6">
+              <div className="flex flex-col items-center">
+                <Avatar className="h-24 w-24 mb-3">
+                  <AvatarImage
+                    src={selectedMember.photoUrl}
+                    alt={selectedMember.name}
+                  />
+                  <AvatarFallback>
+                    {selectedMember.name.charAt(0)}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="flex flex-col gap-2 mt-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex gap-2 items-center"
+                  >
+                    <Mail className="h-4 w-4" />
+                    <span className="text-xs">{selectedMember.email}</span>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex gap-2 items-center"
+                  >
+                    <Phone className="h-4 w-4" />
+                    <span className="text-xs">{selectedMember.phone}</span>
+                  </Button>
+                </div>
+              </div>
 
-        <div className="flex-1">
-          <h3 className="text-xl font-semibold">{selectedMember.name}</h3>
-          <div className="flex items-center gap-2 mb-4">
-            <p className="text-gray-600">{selectedMember.title}</p>
-            <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
-              {selectedMember.department}
-            </span>
-          </div>
-          <h4 className="text-sm font-medium text-gray-500 mb-1">Bio</h4>
-          <p className="text-gray-700">{selectedMember.bio}</p>
-        </div>
-      </div>
-    </DialogContent>
-  )}
-</Dialog>
-
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold">{selectedMember.name}</h3>
+                <div className="flex items-center gap-2 mb-4">
+                  <p className="text-gray-600">{selectedMember.title}</p>
+                  <span className="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full inline-block text-center break-words max-w-[100px]">
+                    {selectedMember.department}
+                  </span>
+                </div>
+                <h4 className="text-sm font-medium text-gray-500 mb-1">Bio</h4>
+                <p className="text-gray-700">{selectedMember.bio}</p>
+              </div>
+            </div>
+          </DialogContent>
+        )}
+      </Dialog>
     </div>
   );
 };

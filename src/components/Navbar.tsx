@@ -44,7 +44,10 @@ const Navbar = () => {
                         alt="MAN 2 Logo"
                         className="h-10 w-10 rounded-md"
                     />
-                    <Link to="/" className="font-medium text-xl">
+                    <Link 
+                        to="/" 
+                        className="font-medium md:text-lg sm:text-base"
+                    >
                         Ikatan Alumni MAN 2 Sukabumi
                     </Link>
                 </div>

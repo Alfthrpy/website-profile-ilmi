@@ -14,7 +14,7 @@ export default function LandingPage() {
         {/* Hero section - Mobile Optimized */}
         <section className="py-12 md:py-20 px-4 text-center bg-gradient-to-b from-blue-50 to-white">
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-2 text-blue-900">
-            Ikatan Alumni MAN 2 Sukabumi
+            Ikatan Alumni MAN 2 Sukabumi (ILMI)
           </h2>
           <h3 className="text-xl md:text-2xl font-medium text-blue-700 mb-4">
             Menjaga Silaturahmi, Membangun Masa Depan
